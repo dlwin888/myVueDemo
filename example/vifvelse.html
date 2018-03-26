@@ -13,12 +13,19 @@
     <div id="app">
         <div v-if="isLogin">hello: buddy</div>
         <div v-else>请登录后操作</div>
+        <div v-show="isShow">v-show 控制css display属性</div>
+        <dl>
+            <dt>v-if 和v-show的区别：</dt>
+            <dd>v-if： 判断是否加载，可以减轻服务器的压力，在需要时加载。</dd>
+            <dd>v-show：调整css dispaly属性，可以使客户端操作更加流畅。</dd>
+        </dl>
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-                isLogin: false
+                isLogin: false,
+                isShow: true
             }
         })
     </script>
