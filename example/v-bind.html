@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 指令</title>
+    <style>
+    .classA {
+        color:blueviolet;
+    }
+    .classB {
+        color:cornflowerblue;
+    }
+    </style>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-bind指令用法</h1>
+    <hr>
+    <div id="app">
+        <img v-bind:src="imgSrc" width="200px">
+        <br>
+        <!-- 完整语法 -->
+        <a v-bind:href="url">观海听涛</a>
+        <br>
+        <!-- 缩写 -->
+        <a :href="url">观海听涛</a>
+
+        <div :class="classA">1、绑定classA</div>
+        <div :class="{classA:isOk}">2、绑定class中的判断</div>
+        <div :class="[classA,classB]">3、绑定class中的数组</div>
+        <div :class="isOk?classA:classB">4、绑定class中的三元表达式判断</div>
+        <div :style="{color:red,fontSize:font}">5、绑定style</div>
+        <div :style="styleObject">6、用对象绑定style样式</div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780',
+                url: 'http://dlwin888.github.com',
+                isOk: false,
+                font: '20px',
+                classA: 'classA',
+                classB: 'classB',
+                styleObject: {color: 'green'}
+            }
+        })
+    </script>
+</body>
+
+</html>
