@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.entend用法</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>Vue.extend扩展实例构造器</h1>
+    <hr>
+    <div>自定义标签：</div>
+    <author></author>
+    <div>原生标签:</div>
+    <div id="id"></div>
+    <script>
+        var authorExtend = Vue.extend({
+            template: "<p><a :href='authorUrl'>{{authorName}}</a></p>",
+            data: function () {
+                return {
+                    authorName: 'dlwin888',
+                    authorUrl: 'http://dlwin888.github.com'
+                }
+            }
+        });
+        new authorExtend().$mount('author');
+        new authorExtend().$mount('#id');
+    </script>
+</body>
+
+</html>
