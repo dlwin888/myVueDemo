@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component的使用</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>Component用法</h1>
+    <hr>
+    <div id="app">
+        <dlwin></dlwin>
+        <dlwin888></dlwin888>
+        <h3>组件和指令的区别</h3>
+        <p>组件注册的是一个标签，而指令注册的是已有标签里的一个属性。在实际开发中我们还是用组件比较多，指令用的比较少。</p>
+    </div>
+    <script>
+        Vue.component('dlwin', {
+            template: `<div style="color:blue;">这是一个全局组件</div>`
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {},
+            components: {
+                dlwin888: {
+                    template: `<div style="color:red;">这是一个局部组件</div>`
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
