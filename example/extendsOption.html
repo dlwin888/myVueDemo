@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Extends Optin Demo</title>
+</head>
+
+<body>
+    <h1>Extends Optin Demo</h1>
+    <hr>
+    <div id="app">
+        [[message]]
+        <p>
+            <button @click="add">add</button>
+        </p>
+        <p>注:methods中的同名方法会被隐藏</p>
+        <p>delimiters的作用是改变我们插值的符号</p>
+    </div>
+
+    <script type="text/javascript">
+        var bbb = {
+            created: function () {
+                console.log("我是被扩展出来的");
+            },
+            methods: {
+                add: function () {
+                    console.log('我是被扩展出来的方法！');
+                }
+            }
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue!'
+            },
+            created:function(){
+                console.log("我是原生出来的");
+            },
+            methods: {
+                add: function () {
+                    console.log('我是原生方法');
+                }
+            },
+            extends: bbb,
+            delimiters:['[[',']]']
+        })
+    </script>
+</body>
+
+</html>
